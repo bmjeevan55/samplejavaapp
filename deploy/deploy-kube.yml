@@ -7,7 +7,7 @@
             echo "deleteing previous application deployment"
             kubectl delete deployment `kubectl get deployment | grep -v NAME | awk '{print $1}' | grep sampleapp`
             echo "creating new application deployment"
-            kubectl create deployment sampleapp --image=lerndevops/samplejavaapp:{{ build }}
+            kubectl create deployment sampleapp --image=799626262/samplejavaapp:{{ build }}
          else 
             echo "Deploying Sampleapp Application"
             kubectl create deployment sampleapp --image=lerndevops/samplejavaapp:{{ build }}
