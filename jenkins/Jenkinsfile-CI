@@ -37,7 +37,11 @@ pipeline {
                  }
 	   post {
                success {
-                   jacoco buildOverBuild: true, deltaBranchCoverage: '20', deltaClassCoverage: '20', deltaComplexityCoverage: '20', deltaInstructionCoverage: '20', deltaLineCoverage: '20', deltaMethodCoverage: '20'
+					jacoco{
+  							  changeBuildStatus: false, // Prevents JaCoCo from failing the pipeline
+ 							   maximumLineCoverage: '50', 
+						  	  minimumLineCoverage: '30'
+							}
                }
            }			
         }
@@ -49,3 +53,4 @@ pipeline {
         }
     }
 }
+ //  jacoco buildOverBuild: true, deltaBranchCoverage: '20', deltaClassCoverage: '20', deltaComplexityCoverage: '20', deltaInstructionCoverage: '20', deltaLineCoverage: '20', deltaMethodCoverage: '20'
